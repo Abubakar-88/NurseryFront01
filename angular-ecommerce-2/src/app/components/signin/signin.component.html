@@ -1,0 +1,48 @@
+<!-- <div class="jumbotron d-flex align-items-center min-vh-100">
+    <div class="container text-center">
+        <div id="signin-box">
+            <h2>Signin Here</h2>
+            <div style="color : red" *ngIf='error'>{{error}}</div>
+            <form name='signinForm' (submit)="doSignin()">
+                <table>
+                    <tr>
+                        <td>Username:</td>
+                        <td><input type='text' name='username' [(ngModel)]="username"></td>
+                    </tr>
+                    <tr>
+                        <td>Password:</td>
+                        <td><input type='password' name='password' [(ngModel)]="password"/></td>
+                    </tr>
+                    <tr>
+                        <td><input name="submit" type="submit" value="Signin" /></td>
+                        <td>New to our platform? <a href="/signup" routerLink="/signup">Sign up!</a></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+  </div> -->
+
+<div class="wrapper">
+    <div class="logo2">
+        <img src="https://i.pinimg.com/736x/eb/74/f3/eb74f357114bfd758da30cdd29dbfad9.jpg" alt="">
+    </div>
+    <div class="text-center mt-4 name">
+        Nursery World
+    </div>
+    <div style="color : red" *ngIf='error'>{{error}}</div>
+    <form class="p-3 mt-3" name='signinForm' (submit)="doSignin()">
+        <div class="form-field d-flex align-items-center">
+            <span class="far fa-user"></span>
+            <input type="text" name="userName" [(ngModel)]="username" placeholder="Username">
+        </div>
+        <div class="form-field d-flex align-items-center">
+            <span class="fas fa-key"></span>
+            <input type="password" name="password" [(ngModel)]="password" placeholder="Password">
+        </div>
+        <button class="btn mt-3" name="submit" type="submit" value="Login">Signin</button>
+    </form>
+    <div class="text-center fs-6">
+        <a href="/signup" routerLink="/signup">Signup?</a>
+    </div>
+</div>

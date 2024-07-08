@@ -1,0 +1,118 @@
+<div *ngIf="isSignedin" class="signin-status-user-info">
+<div class="main-content">
+    <div class="section-content section-content-p30">
+        <div class="container-fluid">
+            <h3>Your Orders</h3>
+
+            <div *ngIf="orderHistoryList.length > 0">
+                <table class="table table-bordered">
+                    <tr>
+                        <th width="20%" class="text-center">Order Tracking Number</th>
+                        <th width="10%">Total Price</th>
+                        <th width="10%">Total Quantity</th>
+                        <th width="10%">Date</th>
+                        <th width="10%">Order Item</th>
+                    </tr>
+
+                    <tr *ngFor="let tempOrderHistory of orderHistoryList">
+                        <td class="text-center">
+                            {{ tempOrderHistory.orderTrackingNumber }}
+                        </td>
+                        <td>
+                            {{ tempOrderHistory.totalPrice | currency: 'USD' }}
+                        </td>
+                        <td>
+                            {{ tempOrderHistory.totalQuantity }}
+                        </td>
+                        <td>
+                            {{ tempOrderHistory.dateCreated | date: 'medium' }}
+                         </td>   
+                        
+                        <td><a  style="background-color: #0d6efd;
+                        color: white; border-radius: 5px; 
+                        text-decoration-line: none;
+                        font-weight: 400;
+                        line-height: 1.5;
+                        cursor: pointer;
+                        user-select: none;
+                        border: 1px solid transparent;
+                        padding: 0.375rem 0.75rem;
+                        font-size: 1rem;
+                        border-radius: 0.25rem;
+                        transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+                        "
+                             class="mdc-button--outlined" (click)="goToOrderItemList(tempOrderHistory)" >
+                         
+                           Item view
+                          </a></td>
+                    </tr>
+                </table>
+            </div>
+<!-- routerLink="/order-item/{{tempOrderHistory.id}}" routerLinkActive="active-link" -->
+            <!-- if order history is empty then display a message -->
+            <div *ngIf="orderHistoryList.length == 0" class="alert alert-warning col-md-12" role="alert">
+                No orders found.
+            </div>
+
+        </div>
+
+        <div *ngIf="isDisplayOrderItem" class="">
+            <a class="btn btn-primary tooltips" (click)="isDisplayOrderItem = false">
+              <mat-icon></mat-icon> Back to Order
+            </a>
+        
+            <div class="section-content section-content-p30">
+                <div class="container-fluid">
+                    <h3>Your Orders Item</h3>
+        
+                    <div *ngIf="orderItems.length > 0">
+                        <table class="table table-bordered">
+                            <tr>
+                                <th width="10%">Image</th>
+                                <th width="10%">item Name</th>
+                                <th width="10%">Product ID</th>
+                                <th width="10%">Quantity</th>
+                                <th width="10%"> Unit Price</th>
+                                
+                                
+                            </tr>
+        <!-- <a routerLink="/products/{{ tempProduct.id }}"> -->
+                            <tr *ngFor="let tempOrderItem of orderItems">
+                                <td>
+                                    <img src="{{ tempOrderItem.imageUrl }}"  style="height: 100px;">
+                                </td>
+                                <td>
+                                  <a routerLink="/products/{{tempOrderItem.id}}"> {{ tempOrderItem.itemName }}</a> 
+                                </td>
+                                <td>
+                                    {{ tempOrderItem.productId }}
+                                </td>
+                                <td>
+                                    {{ tempOrderItem.quantity }}
+                                </td>
+                                <td>
+                                    {{ tempOrderItem.unitPrice }}
+                                </td>
+                               
+                               
+                            </tr>
+                        </table>
+                    </div>
+        
+                    <!-- if order history is empty then display a message -->
+                    <div *ngIf="orderItems.length == 0" class="alert alert-warning col-md-12" role="alert">
+                        No orders item found.
+                    </div>
+        
+                </div>
+            </div>
+        </div>
+        
+   </div>
+       
+
+
+
+    </div>
+</div>
+

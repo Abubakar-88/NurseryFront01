@@ -1,0 +1,162 @@
+<!-- <div id="signup-box">
+	<h2>Signup Here</h2>
+	<div style="color : red" *ngIf='error'>{{error}}</div>
+	<div style="color : green" *ngIf='success'>{{success}}</div>
+	<form name='signupForm' (submit)="doSignup()">
+		<table>
+			<tr>
+				<td>Username:</td>
+				<td><input type='text' name='username' [(ngModel)]="username"></td>
+			</tr>
+			<tr>
+				<td>Password:</td>
+				<td><input type='password' name='password' [(ngModel)]="password"/></td>
+			</tr>
+            <tr>
+				<td>Email:</td>
+				<td><input type='email' name='email' [(ngModel)]="email"></td>
+			</tr>
+            <tr>
+				<td>Full Name:</td>
+				<td><input type='text' name='full_name' [(ngModel)]="full_name"></td>
+			</tr>
+            <tr>
+				<td>Contact:</td>
+				<td><input type='phone' name='contact' [(ngModel)]="contact"></td>
+			</tr>
+            <tr>
+				<td>Address:</td>
+				<td><input type='text' name='address' [(ngModel)]="address"></td>
+			</tr>
+		
+			<tr>
+				<td><input name="submit" type="submit" value="Signup" /></td>
+				<td>Have account? <a href="/signin" routerLink="/signin">Signin</a></td>
+			</tr>
+		</table>
+	</form>
+</div> -->
+
+<div class="wrapper-ragister">
+	<div class="logo2">
+		<img src="https://i.pinimg.com/736x/eb/74/f3/eb74f357114bfd758da30cdd29dbfad9.jpg" alt="">
+	</div>
+	<div class="text-center mt-4 name">
+		Nursery World
+	</div>
+	<div style="color : red" *ngIf='error'>{{error}}</div>
+	<form class="p-3 mt-3" name='signinForm'  (submit)="doSignup()" >
+		
+		<div class="form-field d-flex align-items-center">
+			
+			<input type="text" name="username" [(ngModel)]="username"  placeholder="Username">
+			<!-- <div *ngIf="username.toString && (username.toString || username.toString)" class="alert alert-danger mt-1">
+
+				<div *ngIf="username.toString ['required'] || username.toString['notOnlyWhitespace']">
+					User Name is required
+				</div>
+				<div *ngIf="username.toString['pattern']">
+					Email must be a valid email address format
+				</div>
+				<div *ngIf="username.toString['minlength']">
+					User Name must be at least 2 characters long
+				</div>
+
+			</div> -->
+		</div>
+		<div class="form-field d-flex align-items-center"> 
+			
+			<input type="password" name="password" [(ngModel)]="password" placeholder="Password" >
+		</div>
+		<div class="form-field d-flex align-items-center">
+			
+			<input type="email" name="email" [(ngModel)]="email" placeholder="Email">
+		</div>
+		<div class="form-field d-flex align-items-center">
+			
+			<input type="text" name="firstName" [(ngModel)]="firstName" placeholder="First Name" >
+		</div>
+		<div class="form-field d-flex align-items-center">
+			
+			<input type="text" name="lastName" [(ngModel)]="lastName" placeholder="Last Name">
+		</div>
+		<div class="form-field d-flex align-items-center">
+			
+			<input type="phone" name="contact" [(ngModel)]="contact" placeholder="Phone Number">
+		</div>
+		<div class="form-field d-flex align-items-center">
+		
+			<input type="text" name="address" [(ngModel)]="address" placeholder="Address">
+		</div>
+		<button class="btn mt-3" name="submit" type="submit" value="Register">Signup</button>
+		
+	</form>
+	<div class="text-center fs-6">
+		<a routerLink="/signin">Signin?</a>
+	</div>
+</div>
+
+
+<div id="message">
+<p id="letter" class="invalid">A <b>underscore</b> letter</p>
+</div>
+
+
+
+<script>  
+    function verifyPassword() {  
+      var pw = document.getElementById("pswd").value;  
+      //check empty password field  
+      if(pw == "") {  
+         document.getElementById("message").innerHTML = "**Fill the password please!";  
+         return false;  
+      }  
+       
+     //minimum password length validation  
+      if(pw.length < 8) {  
+         document.getElementById("message").innerHTML = "**Password length must be atleast 8 characters";  
+         return false;  
+      }  
+      
+    //maximum length of password validation  
+      if(pw.length > 15) {  
+         document.getElementById("message").innerHTML = "**Password length must not exceed 15 characters";  
+         return false;  
+      } else {  
+         alert("Password is correct");  
+      }  
+    }  
+
+
+			     
+	var myInput = document.getElementById("username");
+	var letter = document.getElementById("underscore");
+	myInput.onfocus = function() {
+		document.getElementById("message").style.display = "block";
+	  }
+	  myInput.onblur = function() {
+		document.getElementById("message").style.display = "none";
+	  }
+	
+	  myInput.onkeyup = function() {
+		// Validate lowercase letters
+		var underscore = /[_]/g;
+		if(myInput.value.match(underscore))   {
+		  letter.classList.remove("valid");
+		  letter.classList.add("invalid");
+		} else {
+		  letter.classList.remove("invalid");
+		  letter.classList.add("valid");
+	  }
+	}
+
+
+
+
+
+
+
+
+
+
+    </script>  

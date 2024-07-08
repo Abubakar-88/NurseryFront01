@@ -1,0 +1,83 @@
+<div class="profile-page-wrapper">
+  <div *ngIf="isSignedin" class="signin-status-user-info">
+    <!-- <div class="jumbotron d-flex align-items-center min-vh-100">
+    <div class="container text-center">
+      <p>my-profile works!</p>
+      {{customer.id}}
+    </div>
+  </div> -->
+
+    <div class="card">
+      <div class="card-body">
+        <div class="d-flex flex-column align-items-center text-center">
+          <img
+            src="https://www.incloudaccounting.co.uk/wp-content/uploads/2021/03/pngjoy.com_man-head-silhouette-grey-person-icon-hd-png_9607701.png"
+            alt="Admin" class="rounded-circle" width="150">
+          <div class="mt-3">
+            <h4>{{customer.firstName}} {{customer.lastName}}</h4>
+            <p class="text-secondary mb-1">Customer</p>
+            <p class="text-muted font-size-sm"> {{customer.address}}</p>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-8">
+      <div class="card mb-3">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-sm-3">
+              <h6 class="mb-0">first Name</h6>
+            </div>
+            <div class="col-sm-9 text-secondary">
+              {{customer.firstName}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-3">
+              <h6 class="mb-0">last Name</h6>
+            </div>
+            <div class="col-sm-9 text-secondary">
+              {{customer.lastName}}
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-3">
+              <h6 class="mb-0">Email</h6>
+            </div>
+            <div class="col-sm-9 text-secondary">
+              {{customer.email}}
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-3">
+              <h6 class="mb-0">Phone</h6>
+            </div>
+            <div class="col-sm-9 text-secondary">
+              {{customer.contact}}
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-3">
+              <h6 class="mb-0">Address</h6>
+            </div>
+            <div class="col-sm-9 text-secondary">
+              {{customer.address}}
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-12">
+              <a class="btn btn-info " (click)="editProfile()">Edit</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

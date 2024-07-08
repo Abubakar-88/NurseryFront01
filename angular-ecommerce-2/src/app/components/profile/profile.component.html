@@ -1,0 +1,26 @@
+<div class="profile-header">
+  <div *ngIf="isSignedin" class="signin-status-user-info">
+    <p class="float-left">Welcome back </p>
+    <!-- <div *ngFor=" let customer of customers"> 
+          <button (click)="myProfile(customer?.id)"  class="btn btn-info" >My Profile</button>
+        </div>  -->
+  </div>
+
+  <div *ngIf="isSignedin" class="profile-menu">
+
+    <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+      <div ngbDropdown class="d-inline-block">
+        <button type="button" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>{{ signedinUser
+          }}</button>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+          <button ngbDropdownItem routerLink="my-profile">My Profile</button>
+          <button ngbDropdownItem routerLink="order-history">Order List</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button *ngIf=" !isSignedin" routerLink="/signin" class="security-btn">Signin</button>
+  <button *ngIf="isSignedin" (click)="doSignout()" class="security-btn">Signout</button>
+</div>
